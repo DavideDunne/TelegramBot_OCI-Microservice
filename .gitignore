@@ -35,6 +35,7 @@ frontend/coverage
 
 # production
 frontend/build
+backend/src/main/resources/application.properties
 
 # misc
 .DS_Store
