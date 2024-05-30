@@ -1,0 +1,44 @@
+version: 0.1
+component: build
+timeoutInSeconds: 1000
+shell: bash
+failImmediatelyOnError: true
+
+env:
+  variables:
+    "testEnv" : "testValue1"
+  exportedVariables:
+    - BuildServiceDemoVersion
+ 
+steps:
+  - type: Command
+    name: setup environment
+    command: |
+      yum -y install curl
+      yum -y install vim
+      ls -la
+      pwd
+
+  - type: Command
+    name: compile
+    command: mvn compile
+
+  - type: Command
+    name: package
+    command: mvn clean package spring-boot:repackage
+
+  - type: Command
+    name: check
+    command: ls -la target/
+
+  - type: Command
+    name: Dockerize
+    command: |
+      BuildServiceDemoVersion=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
+      echo $BuildServiceDemoVersion
+      docker build -f Dockerfile -t mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion} .
+
+outputArtifacts:  
+  - name: javaBotDockerImage
+    type: DOCKER_IMAGE
+    location: hello-docker
