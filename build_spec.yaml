@@ -5,6 +5,8 @@ shell: bash
 failImmediatelyOnError: true
 
 env:
+  variables:
+    "testEnv" : "testValue1"
   exportedVariables:
     - BuildServiceDemoVersion
  
@@ -23,7 +25,7 @@ steps:
 
   - type: Command
     name: package
-    command: mvn package
+    command: mvn clean package spring-boot:repackage
 
   - type: Command
     name: check
@@ -34,13 +36,9 @@ steps:
     command: |
       BuildServiceDemoVersion=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
       echo $BuildServiceDemoVersion
-      docker build -t hello-docker .
+      docker build -f Dockerfile -t mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion} .
 
-outputArtifacts:
-  - name: helloArtifact
-    type: BINARY
-    location: /workspace/git_tarde/target/gs-maven-1.jar
-  
+outputArtifacts:  
   - name: javaBotDockerImage
     type: DOCKER_IMAGE
     location: hello-docker
