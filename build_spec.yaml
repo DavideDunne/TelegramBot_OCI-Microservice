@@ -20,10 +20,6 @@ steps:
       pwd
 
   - type: Command
-    name: compile
-    command: mvn compile
-
-  - type: Command
     name: package
     command: mvn clean package spring-boot:repackage
 
