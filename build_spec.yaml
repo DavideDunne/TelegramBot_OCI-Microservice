@@ -20,6 +20,7 @@ steps:
       echo $JAVA_HOME
       JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x86_64
       ls -la
+      java -version
       alternatives --config java
       java -version
       pwd
