@@ -18,9 +18,11 @@ steps:
       yum -y install vim
       yum -y install jdk-11-headless
       echo $JAVA_HOME
-      JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x64/bin/java
+      JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x64
       ls -la
       java -version
+      cd /etc/alternatives
+      ls -la
       pwd
 
   - type: Command
