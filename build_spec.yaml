@@ -20,6 +20,12 @@ steps:
       echo $JAVA_HOME
       JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x86_64
       ls -la
+      cd ..
+      pwd
+      ls -la
+      cd ..
+      pwd
+      ls -la
       pwd
 
   - type: Command
