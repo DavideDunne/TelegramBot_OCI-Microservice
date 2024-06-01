@@ -20,13 +20,7 @@ steps:
       echo $JAVA_HOME
       JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x86_64
       ls -la
-      cd ..
-      pwd
-      ls -la
-      cd ..
-      pwd
-      ls -la
-      find . -name /bin /etc /home /lib /opt /sbin /usr /var /workspace "jdk-11"
+      alternatives --config java
       pwd
 
   - type: Command
