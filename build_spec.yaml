@@ -60,3 +60,6 @@ outputArtifacts:
   - name: javaBotDockerImage
     type: DOCKER_IMAGE
     location: mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion}
+  - name: kube-manifest-build-service-demo
+    type: BINARY
+    location: MtdrSpring/backend/target/classes/todolistapp-springboot.yaml    
