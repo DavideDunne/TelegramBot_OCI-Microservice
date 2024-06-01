@@ -52,4 +52,4 @@ steps:
 outputArtifacts:  
   - name: javaBotDockerImage
     type: DOCKER_IMAGE
-    location: hello-docker
+    location: mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion}
