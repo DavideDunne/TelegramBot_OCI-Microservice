@@ -15,13 +15,13 @@ steps:
     name: setup environment
     command: |
       yum -y install curl
-      yum -y install vim
       yum -y install jdk-11-headless
+      echo "Old JAVA_HOME:"
       echo $JAVA_HOME
       JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x64
-      ls -la
+      echo "New JAVA_HOME:"
+      echo $JAVA_HOME
       java -version
-      cd /etc/alternatives
       ls -la
       pwd
 
@@ -45,6 +45,7 @@ steps:
     name: Dockerize
     command: |
       BuildServiceDemoVersion=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
+      echo "BuildServiceDemoVersion: "
       echo $BuildServiceDemoVersion
       cd MtdrSpring/backend
       docker build -f Dockerfile -t mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion} .
