@@ -26,6 +26,7 @@ steps:
       cd ..
       pwd
       ls -la
+      find . -name /bin /etc /home /lib /opt /sbin /usr /var /workspace "jdk-11"
       pwd
 
   - type: Command
