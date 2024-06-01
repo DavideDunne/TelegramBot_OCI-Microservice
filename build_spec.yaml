@@ -21,6 +21,7 @@ steps:
       JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x86_64
       ls -la
       alternatives --config java
+      java -version
       pwd
 
   - type: Command
