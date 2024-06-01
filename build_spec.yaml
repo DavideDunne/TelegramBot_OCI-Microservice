@@ -28,6 +28,10 @@ steps:
   - type: Command
     name: package
     command: |
+      echo "Old JAVA_HOME:"
+      echo $JAVA_HOME
+      JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x64
+      echo "New JAVA_HOME:"
       echo $JAVA_HOME
       java -version
       mvn clean package spring-boot:repackage
