@@ -16,7 +16,7 @@ steps:
     command: |
       yum -y install curl
       yum -y install vim
-      sudo dnf install jdk-11-headless
+      yum install jdk-11-headless
       ls -la
       pwd
 
