@@ -17,6 +17,7 @@ steps:
       yum -y install curl
       yum -y install vim
       yum -y install jdk-11-headless
+      echo $JAVA_HOME
       JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x86_64
       ls -la
       pwd
