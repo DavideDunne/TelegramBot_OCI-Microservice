@@ -25,7 +25,10 @@ steps:
 
   - type: Command
     name: package
-    command: mvn clean package spring-boot:repackage
+    command: |
+      echo $JAVA_HOME
+      java -version
+      mvn clean package spring-boot:repackage
 
   - type: Command
     name: check
