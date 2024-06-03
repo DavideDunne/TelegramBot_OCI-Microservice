@@ -12,7 +12,7 @@ env:
  
 steps:
   - type: Command
-    name: setup environment
+    name: Setup environment
     command: |
       yum -y install curl
       yum -y install jdk-11-headless
@@ -29,7 +29,7 @@ steps:
       pwd
 
   - type: Command
-    name: package
+    name: Package
     command: |
       echo "Old JAVA_HOME:"
       echo $JAVA_HOME
@@ -44,7 +44,7 @@ steps:
       mvn clean package spring-boot:repackage
 
   - type: Command
-    name: check
+    name: Check target
     command: ls -la MtdrSpring/backend/target/
 
   - type: Command
@@ -57,7 +57,7 @@ steps:
       docker build -f Dockerfile -t mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion} .
 
   - type: Command
-    name: Dockerize
+    name: Modify manifest 
     command: |
       BuildServiceDemoVersion=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
       echo "BuildServiceDemoVersion: "
