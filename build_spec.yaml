@@ -56,6 +56,16 @@ steps:
       cd MtdrSpring/backend
       docker build -f Dockerfile -t mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion} .
 
+  - type: Command
+    name: Dockerize
+    command: |
+      BuildServiceDemoVersion=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
+      echo "BuildServiceDemoVersion: "
+      echo $BuildServiceDemoVersion
+      cd MtdrSpring/backend/target
+      sed 's/BuildServiceDV/${BuildServiceDemoVersion}/' todolistapp-springboot.yaml
+
+
 outputArtifacts:  
   - name: javaBotDockerImage
     type: DOCKER_IMAGE
