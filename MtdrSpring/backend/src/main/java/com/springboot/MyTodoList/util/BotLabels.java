@@ -1,5 +1,9 @@
 package com.springboot.MyTodoList.util;
 
+/**
+ * Enum class to store bot labels (Buttons) sent to the user.
+ * @author Juarez Barbosa
+ */
 public enum BotLabels {
 	
 	SHOW_MAIN_SCREEN("Show Main Screen"), 

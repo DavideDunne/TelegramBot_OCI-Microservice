@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * This class is a controller class for the ToDoItem model
+ * It is responsible for handling the requests and responses for the ToDoItem model
+ * After receiving the calls it will call toDoItemService to perform the operations
+ * @author Peter Song
+ */
 @RestController
 public class ToDoItemController {
     @Autowired

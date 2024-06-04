@@ -1,5 +1,9 @@
 package com.springboot.MyTodoList.util;
 
+/**
+ * Enum class to store bot messages and answers sent to the user.
+ * @author Juarez Barbosa
+ */
 public enum BotMessages {
 	
 	HELLO_MYTODO_BOT(

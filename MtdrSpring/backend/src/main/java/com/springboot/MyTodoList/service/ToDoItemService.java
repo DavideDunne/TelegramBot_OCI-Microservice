@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * This class is a service class for the ToDoItem model
+ * It is responsible for handling the business logic for the ToDoItem model
+ * It will call the repository to perform the CRUD operations
+ * @author Peter Song
+ */
 @Service
 public class ToDoItemService {
 

@@ -1,5 +1,9 @@
 package com.springboot.MyTodoList.util;
 
+/**
+ * Enum class to store bot commands sent by the user.
+ * @author Juarez Barbosa
+ */
 public enum BotCommands {
 
 	START_COMMAND("/start"), 

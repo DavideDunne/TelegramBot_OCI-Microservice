@@ -4,9 +4,10 @@ package com.springboot.MyTodoList.model;
 import javax.persistence.*;
 import java.time.OffsetDateTime;
 
-/*
-    representation of the TODOITEM table that exists already
-    in the autonomous database
+/**
+ * representation of the TODOITEM table that exists already
+ * in the autonomous database
+ * @author Peter Song
  */
 @Entity
 @Table(name = "TODOITEM")
