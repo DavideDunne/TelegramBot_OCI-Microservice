@@ -62,7 +62,7 @@ steps:
       BuildServiceDemoVersion=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
       echo "BuildServiceDemoVersion: "
       echo $BuildServiceDemoVersion
-      cd MtdrSpring/backend/target/classes
+      cd MtdrSpring/backend/src/main/resources
       sed -i '' -e 's/BuildServiceDV/${BuildServiceDemoVersion}/g' todolistapp-springboot.yaml
 
 
