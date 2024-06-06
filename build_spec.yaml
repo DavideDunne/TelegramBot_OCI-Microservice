@@ -67,6 +67,7 @@ steps:
       cp todolistapp-springboot.yaml todolistapp-springboot.yaml.tmp &&
       sed "s/BuildServiceDV/${BuildServiceDemoVersion}/g" <todolistapp-springboot.yaml.tmp >todolistapp-springboot.yaml &&
       rm -f todolistapp-springboot.yaml.tmp
+      cat todolistapp-springboot.yaml
       ls -la
 
 
