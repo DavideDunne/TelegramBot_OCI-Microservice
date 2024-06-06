@@ -1,0 +1,2 @@
+-- Create tables for the application
+-- Load it into the OCI database actions
