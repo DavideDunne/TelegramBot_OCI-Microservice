@@ -64,6 +64,7 @@ steps:
       echo $BuildServiceDemoVersion
       cd MtdrSpring/backend/src/main/resources
       ls -la
+      chmod 666 todolistapp-springboot.yaml
       sed -i '' -e "s/BuildServiceDV/${BuildServiceDemoVersion}/g" todolistapp-springboot.yaml
 
 
