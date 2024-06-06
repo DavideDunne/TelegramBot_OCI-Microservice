@@ -63,7 +63,7 @@ steps:
       echo "BuildServiceDemoVersion: "
       echo $BuildServiceDemoVersion
       cd MtdrSpring/backend/target/classes
-      sed 's/BuildServiceDV/${BuildServiceDemoVersion}/' todolistapp-springboot.yaml
+      sed -i '' -e 's/BuildServiceDV/${BuildServiceDemoVersion}/g' todolistapp-springboot.yaml
 
 
 outputArtifacts:  
