@@ -8,8 +8,6 @@ env:
   variables:
     "testEnv" : "testValue1"
     "JAVA_HOME" : "/usr/lib64/graalvm/graalvm20-ee-java11"
-    # PATH is a reserved variable and cannot be defined as a variable.
-    # PATH can be changed in a build step and the change is visible in subsequent steps.
   exportedVariables:
     - BuildServiceDemoVersion
  
