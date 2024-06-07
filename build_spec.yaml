@@ -19,6 +19,7 @@ steps:
     command: |
       yum -y install curl
       yum -y install graalvm-java11
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm-java11
       echo "Java -version: "
       java -version
       echo "Javac -version: "
@@ -30,16 +31,13 @@ steps:
   - type: Command
     name: "Set the PATH here"
     command: |
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm-java11
       export PATH=$JAVA_HOME/bin:$PATH
 
   - type: Command
     name: Package
     command: |
-      echo "Old JAVA_HOME:"
-      echo $JAVA_HOME
-      JAVA_HOME=/usr/lib/jvm/jdk-11-oracle-x64
-      echo "New JAVA_HOME:"
-      echo $JAVA_HOME
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm-java11
       echo "Java -version: "
       java -version
       echo "Javac -version: "
