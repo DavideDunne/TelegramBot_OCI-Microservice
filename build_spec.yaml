@@ -63,7 +63,7 @@ steps:
       echo "BuildServiceDemoVersion: "
       echo $BuildServiceDemoVersion
       cd MtdrSpring/backend
-      docker build -f Dockerfile -t mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion} .
+      docker build -f Dockerfile --platform=linux/arm64 -t mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion} .
 
   - type: Command
     name: Modify manifest 
