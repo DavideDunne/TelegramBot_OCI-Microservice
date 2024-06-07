@@ -18,7 +18,7 @@ steps:
     name: Setup environment
     command: |
       yum -y install curl
-      yum -y install graalvm21-ee-11-jdk
+      yum -y install graalvm20-ee-11-native-image
       ls /usr/lib64/graalvm
       export JAVA_HOME=/usr/lib64/graalvm/graalvm20-ee-java11
       echo "JAVA_HOME: "
