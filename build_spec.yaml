@@ -7,7 +7,7 @@ failImmediatelyOnError: true
 env:
   variables:
     "testEnv" : "testValue1"
-    "JAVA_HOME" : "/usr/lib64/graalvm/graalvm-java11"
+    "JAVA_HOME" : "/usr/lib64/graalvm/graalvm20-ee-java11"
     # PATH is a reserved variable and cannot be defined as a variable.
     # PATH can be changed in a build step and the change is visible in subsequent steps.
   exportedVariables:
@@ -18,12 +18,11 @@ steps:
     name: Setup environment
     command: |
       yum -y install curl
-      yum -y install graalvm-java11
-      export JAVA_HOME=/usr/lib64/graalvm/graalvm-java11
-      echo "Java -version: "
-      java -version
-      echo "Javac -version: "
-      javac -version
+      yum -y install graalvm21-ee-11-jdk
+      ls /usr/lib64/graalvm
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm20-ee-java11
+      echo "JAVA_HOME: "
+      echo $JAVA_HOME
       ls -la
       pwd
 
@@ -31,8 +30,16 @@ steps:
   - type: Command
     name: "Set the PATH here"
     command: |
-      export JAVA_HOME=/usr/lib64/graalvm/graalvm-java11
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm20-ee-java11
       export PATH=$JAVA_HOME/bin:$PATH
+      echo "JAVA_HOME: "
+      echo $JAVA_HOME
+      echo "PATH: "
+      echo $PATH
+      echo "Java -version: "
+      java -version
+      echo "Javac -version: "
+      javac -version
 
   - type: Command
     name: Package
