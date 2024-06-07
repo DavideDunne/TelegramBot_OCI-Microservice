@@ -44,7 +44,7 @@ steps:
   - type: Command
     name: Package
     command: |
-      export JAVA_HOME=/usr/lib64/graalvm/graalvm-java11
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm20-ee-java11
       echo "Java -version: "
       java -version
       echo "Javac -version: "
