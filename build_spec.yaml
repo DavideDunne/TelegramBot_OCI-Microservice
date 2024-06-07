@@ -24,7 +24,6 @@ steps:
       ls -la
       pwd
 
-steps:
   - type: Command
     name: "Set the PATH here"
     command: |
