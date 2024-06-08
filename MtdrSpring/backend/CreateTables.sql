@@ -1,4 +1,6 @@
 -- Create tables for the application
+-- Load it into the OCI database actions
+
 CREATE TABLE usuarios(
 usuario_id binary(16) primary key NOT NULL,
 nombre1 varchar(255) NOT NULL,
@@ -15,7 +17,7 @@ foreign key (usuario_id) references usuarios(usuario_id)
 )
 
 CREATE TABLE estado(
-estado_id int primary key NOT NULL, 
+estado_id int primary key NOT NULL,
 tarea_id binary(16),
 foreign key (tarea_id) references tareas(tarea_id)
 )
@@ -39,5 +41,3 @@ equipo_id binary(16),
 foreign key (usuario_id) references usuarios(usuario_id),
 foreign key (equipo_id) references equipo(equipo_id)
 )
-
--- Load it into the OCI database actions

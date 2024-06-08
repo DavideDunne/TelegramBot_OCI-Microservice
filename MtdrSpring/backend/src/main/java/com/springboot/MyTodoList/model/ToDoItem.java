@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.time.OffsetDateTime;
 
 /**
+ * TODO are we gonna use the ToDoItem model that was already in the project or shall we replace it with this?
  * representation of the TODOITEM table that exists already
  * in the autonomous database
  * @author Peter Song
