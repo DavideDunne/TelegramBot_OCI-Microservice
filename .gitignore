@@ -44,6 +44,7 @@ backend/src/main/resources/application.properties
 .env.test.local
 .env.production.local
 .idea
+.vscode
 
 frontend/package-lock.json
 frontend/npm-debug.log*
