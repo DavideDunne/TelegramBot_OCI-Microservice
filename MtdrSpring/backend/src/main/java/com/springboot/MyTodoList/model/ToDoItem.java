@@ -5,20 +5,20 @@ import javax.persistence.*;
 import java.time.OffsetDateTime;
 
 /**
- * TODO are we gonna use the ToDoItem model that was already in the project or shall we replace it with this?
  * representation of the TODOITEM table that exists already
  * in the autonomous database
+ * It represents a task, that may be assigned to various users
  * @author Peter Song
  */
 @Entity
-@Table(name = "TODOITEM")
+@Table(name = "todoitem")
 public class ToDoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int ID;
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     String description;
-    @Column(name = "CREATION_TS")
+    @Column(name = "creation_ts")
     OffsetDateTime creation_ts;
     public ToDoItem(){
 
