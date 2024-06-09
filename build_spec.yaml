@@ -7,34 +7,87 @@ failImmediatelyOnError: true
 env:
   variables:
     "testEnv" : "testValue1"
+    "JAVA_HOME" : "/usr/lib64/graalvm/graalvm20-ee-java11"
   exportedVariables:
     - BuildServiceDemoVersion
  
 steps:
   - type: Command
-    name: setup environment
+    name: Setup environment
     command: |
       yum -y install curl
-      yum -y install vim
+      yum -y install graalvm20-ee-11-native-image
+      ls /usr/lib64/graalvm
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm20-ee-java11
+      echo "JAVA_HOME: "
+      echo $JAVA_HOME
       ls -la
       pwd
 
   - type: Command
-    name: package
-    command: mvn clean package spring-boot:repackage
+    name: "Set the PATH here"
+    command: |
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm20-ee-java11
+      export PATH=$JAVA_HOME/bin:$PATH
+      echo "JAVA_HOME: "
+      echo $JAVA_HOME
+      echo "PATH: "
+      echo $PATH
+      echo "Java -version: "
+      java -version
+      echo "Javac -version: "
+      javac -version
 
   - type: Command
-    name: check
-    command: ls -la target/
+    name: Package
+    command: |
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm20-ee-java11
+      echo "Java -version: "
+      java -version
+      echo "Javac -version: "
+      javac -version
+      cd MtdrSpring/backend
+      mvn clean package spring-boot:repackage
+
+  - type: Command
+    name: Check target
+    command: ls -la MtdrSpring/backend/target/
 
   - type: Command
     name: Dockerize
     command: |
       BuildServiceDemoVersion=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
+      echo "BuildServiceDemoVersion: "
       echo $BuildServiceDemoVersion
-      docker build -f Dockerfile -t mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion} .
+      cd MtdrSpring/backend
+      docker build -f Dockerfile --platform=linux/arm64 -t mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion} .
+
+  - type: Command
+    name: Modify manifest 
+    command: |
+      BuildServiceDemoVersion=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
+      echo "BuildServiceDemoVersion: "
+      echo $BuildServiceDemoVersion
+      cd MtdrSpring/backend/src/main/resources
+      ls -la
+      cp todolistapp-springboot.yaml todolistapp-springboot.yaml.tmp &&
+      sed "s/BuildServiceDV/${BuildServiceDemoVersion}/g" <todolistapp-springboot.yaml.tmp >todolistapp-springboot.yaml &&
+      rm -f todolistapp-springboot.yaml.tmp
+      echo "MtdrSpring/backend/src/main/resources/todolistapp-springboot.yaml: "
+      cat todolistapp-springboot.yaml    
+      cd ../../../target/classes
+      ls -la
+      cp todolistapp-springboot.yaml todolistapp-springboot.yaml.tmp &&
+      sed "s/BuildServiceDV/${BuildServiceDemoVersion}/g" <todolistapp-springboot.yaml.tmp >todolistapp-springboot.yaml &&
+      rm -f todolistapp-springboot.yaml.tmp
+      echo "MtdrSpring/backend/target/classes/todolistapp-springboot.yaml: "
+      cat todolistapp-springboot.yaml
+
 
 outputArtifacts:  
   - name: javaBotDockerImage
     type: DOCKER_IMAGE
-    location: hello-docker
+    location: mx.queretaro-1.ocir.io/ax2dp0evxata/oci_java_bot_devops:${BuildServiceDemoVersion}
+  - name: kube-manifest-build-service-demo
+    type: BINARY
+    location: MtdrSpring/backend/target/classes/todolistapp-springboot.yaml    
