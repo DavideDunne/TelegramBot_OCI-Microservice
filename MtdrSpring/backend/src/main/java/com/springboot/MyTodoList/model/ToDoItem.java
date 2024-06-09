@@ -20,8 +20,6 @@ public class ToDoItem {
     String description;
     @Column(name = "CREATION_TS")
     OffsetDateTime creation_ts;
-    @Column(name = "done")
-    boolean done;
     public ToDoItem(){
 
     }
@@ -29,7 +27,6 @@ public class ToDoItem {
         this.ID = ID;
         this.description = description;
         this.creation_ts = creation_ts;
-        this.done = done;
     }
 
     public int getID() {
@@ -56,21 +53,12 @@ public class ToDoItem {
         this.creation_ts = creation_ts;
     }
 
-    public boolean isDone() {
-        return done;
-    }
-
-    public void setDone(boolean done) {
-        this.done = done;
-    }
-
     @Override
     public String toString() {
         return "ToDoItem{" +
                 "ID=" + ID +
                 ", description='" + description + '\'' +
                 ", creation_ts=" + creation_ts +
-                ", done=" + done +
                 '}';
     }
 }
