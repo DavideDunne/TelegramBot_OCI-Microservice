@@ -7,22 +7,22 @@ Davide Dunne
 */
 
 -- done column has been removed
-CREATE TABLE todoitem (
+CREATE TABLE TODOUSER.todoitem (
     id NUMBER GENERATED ALWAYS AS IDENTITY,
     description VARCHAR2(4000),
     creation_ts TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE user_type (
+CREATE TABLE TODOUSER.user_type (
     id NUMBER GENERATED ALWAYS AS IDENTITY,
     name VARCHAR2(100),
     PRIMARY KEY (id)
 );
-INSERT INTO user_type (name) VALUES ('Manager');
-INSERT INTO user_type (name) VALUES ('Developer');
+INSERT INTO TODOUSER.user_type (name) VALUES ('Manager');
+INSERT INTO TODOUSER.user_type (name) VALUES ('Developer');
 
-CREATE TABLE user (
+CREATE TABLE TODOUSER.user (
     id NUMBER GENERATED ALWAYS AS IDENTITY,
     name VARCHAR2(100),
     telegram_name VARCHAR2(100),
@@ -31,16 +31,16 @@ CREATE TABLE user (
     FOREIGN KEY (user_type_id) REFERENCES user_type(id)
 );
 
-CREATE TABLE todoitem_state (
+CREATE TABLE TODOUSER.todoitem_state (
     id NUMBER GENERATED ALWAYS AS IDENTITY,
     name VARCHAR2(100),
     PRIMARY KEY (id)
 );
-INSERT INTO todoitem_state (name) VALUES ('TODO');
-INSERT INTO todoitem_state (name) VALUES ('IN_PROGRESS');
-INSERT INTO todoitem_state (name) VALUES ('DONE');
+INSERT INTO TODOUSER.todoitem_state (name) VALUES ('TODO');
+INSERT INTO TODOUSER.todoitem_state (name) VALUES ('IN_PROGRESS');
+INSERT INTO TODOUSER.todoitem_state (name) VALUES ('DONE');
 
-CREATE TABLE todoitem_assignment (
+CREATE TABLE TODOUSER.todoitem_assignment (
     id NUMBER GENERATED ALWAYS AS IDENTITY,
     todoitem_id NUMBER,
     user_id NUMBER,
@@ -51,7 +51,7 @@ CREATE TABLE todoitem_assignment (
     FOREIGN KEY (state_id) REFERENCES todoitem_state(id)
 );
 
-CREATE TABLE team (
+CREATE TABLE TODOUSER.team (
     id NUMBER GENERATED ALWAYS AS IDENTITY,
     name VARCHAR2(100),
     manager_id NUMBER,
@@ -59,7 +59,7 @@ CREATE TABLE team (
     FOREIGN KEY (manager_id) REFERENCES user(id)
 );
 
-CREATE TABLE team_member (
+CREATE TABLE TODOUSER.team_member (
     id NUMBER GENERATED ALWAYS AS IDENTITY,
     team_id NUMBER,
     user_id NUMBER,
