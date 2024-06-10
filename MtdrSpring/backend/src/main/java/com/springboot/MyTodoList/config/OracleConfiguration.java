@@ -74,7 +74,7 @@ public class OracleConfiguration {
         ds.setUser(dbUser);
         logger.info("Using Username " + dbUser);
         ds.setPassword(dbPassword);
-//        Start of lines for local testing with application.properties
+//        End of lines for local testing with application.properties
         return ds;
     }
 }
