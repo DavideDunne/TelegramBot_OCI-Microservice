@@ -36,9 +36,9 @@ public class OracleConfiguration {
      */
     @Bean
     public DataSource dataSource() throws SQLException{
-
-        // Start section to uncomment this if you are running from OCI
         OracleDataSource ds = new OracleDataSource();
+        
+        // Start section to uncomment this if you are running from OCI
         ds.setDriverType(env.getProperty("driver_class_name"));
         logger.info("Using Driver " + env.getProperty("driver_class_name"));
         ds.setURL(env.getProperty("db_url"));
@@ -49,7 +49,6 @@ public class OracleConfiguration {
         // End section to uncomment this if you are running from OCI
 
         // Start section to uncomment this if you are running locally
-//        For local testing
 //        ds.setDriverType(dbSettings.getDriver_class_name());
 //        logger.info("Using Driver " + dbSettings.getDriver_class_name());
 //        ds.setURL(dbSettings.getUrl());
