@@ -1,6 +1,8 @@
--- Create tables for the database
+-- Copy and paste this script in Oracle Database Actions
+
+-- Create database tables for the project
 -- Executed by db-setup.sh
--- Written in Oracle PL/SQL
+-- Written in Oracle SQL
 
 CREATE TABLE TODOUSER.usuario (
     id NUMBER GENERATED ALWAYS AS IDENTITY,
