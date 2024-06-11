@@ -9,10 +9,10 @@ public class UsuarioTarea {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idUsuario;
 
-    @Column(name = "id")
-    private String idUsuario;
+//    @Column(name = "usuario_id")
+//    private String idUsuario;
 
     @Column(name = "nombre1")
     private String nombre1;
@@ -33,8 +33,8 @@ public class UsuarioTarea {
 
     }
 
-    public UsuarioTarea(String title, String nombre1, String nombre2, String apellido1, String apellido2, boolean isManager) {
-        this.idUsuario = title;
+    public UsuarioTarea(long idUsuario, String nombre1, String nombre2, String apellido1, String apellido2, boolean isManager) {
+        this.idUsuario = idUsuario;
         this.nombre1 = nombre1;
         this.nombre2 = nombre2;
         this.apellido1 = apellido1;
@@ -42,19 +42,12 @@ public class UsuarioTarea {
         this.isManager = isManager;
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getIdUsuario() {
+    public long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
+    public void setIdUsuario(long idUsuario) {
         this.idUsuario = idUsuario;
     }
 

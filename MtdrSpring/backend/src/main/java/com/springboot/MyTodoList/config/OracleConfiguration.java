@@ -28,7 +28,7 @@ import java.sql.SQLException;
 //
 //
 @Configuration
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = "com.springboot.MyTodoList.repository")
 @EnableTransactionManagement
 public class OracleConfiguration {
     Logger logger = LoggerFactory.getLogger(DbSettings.class);
@@ -83,6 +83,7 @@ public class OracleConfiguration {
         logger.info("Using Username " + dbUser);
         ds.setPassword(dbPassword);
 //        End of lines for local testing with application.properties
+        logger.info("DataSource initialized successfully.");
         return ds;
     }
 
@@ -94,12 +95,12 @@ public class OracleConfiguration {
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("com.springboot.MyTodoList.config");
+        factory.setPackagesToScan("com.springboot.MyTodoList.model");
         try {
                 factory.setDataSource(dataSource());
         } catch (SQLException e) {
                 // TODO Auto-generated catch block
-                e.printStackTrace();
+              logger.error("Error initializing DataSource: ", e);
         }
         return factory;
     }
