@@ -44,7 +44,7 @@ public class ToDoItemBotController extends TelegramLongPollingBot {
 	@Override
 	public void onUpdateReceived(Update update) {
 
-		boolean isManager = toDoItemService.getIdIsManager(update.getMessage().getFrom().getUserName());
+//		boolean isManager = toDoItemService.getIdIsManager(update.getMessage().getFrom().getUserName());
 
 		// TODO extraer este código e implementar fork de developers y managers
 		if (update.hasMessage() && update.getMessage().hasText()) {

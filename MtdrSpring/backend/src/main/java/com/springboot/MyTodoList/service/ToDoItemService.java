@@ -54,7 +54,7 @@ public class ToDoItemService {
         }
     }
 
-    public boolean getIdIsManager(String userName) {
-
-    }
+//    public boolean getIdIsManager(String userName) {
+//
+//    }
 }
