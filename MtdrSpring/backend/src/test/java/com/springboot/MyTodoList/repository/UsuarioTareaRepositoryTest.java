@@ -1,6 +1,5 @@
 package com.springboot.MyTodoList.repository;
 
-import com.springboot.MyTodoList.model.UserAsSingleEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
