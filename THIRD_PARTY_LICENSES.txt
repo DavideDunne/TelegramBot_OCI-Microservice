@@ -178,7 +178,7 @@ Apache License
       editorial revisions, annotations, elaborations, or other modifications
       represent, as a whole, an original work of authorship. For the purposes
       of this License, Derivative Works shall not include works that remain
-      separable from, or merely link (or bind by name) to the interfaces of,
+      separable from, or merely link (or bind by telegramUsername) to the interfaces of,
       the Work and Derivative Works thereof.
 
       "Contribution" shall mean any work of authorship, including
@@ -374,7 +374,7 @@ Springboot is available under Apache License 2.0.
       editorial revisions, annotations, elaborations, or other modifications
       represent, as a whole, an original work of authorship. For the purposes
       of this License, Derivative Works shall not include works that remain
-      separable from, or merely link (or bind by name) to the interfaces of,
+      separable from, or merely link (or bind by telegramUsername) to the interfaces of,
       the Work and Derivative Works thereof.
 
       "Contribution" shall mean any work of authorship, including

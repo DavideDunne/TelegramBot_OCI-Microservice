@@ -195,7 +195,7 @@ resource "oci_core_security_list" "endpoint" {
 }
 resource "oci_core_subnet" "nodePool_Subnet" {
   #Required
-  #availability_domain = data.oci_identity_availability_domain.ad1.name
+  #availability_domain = data.oci_identity_availability_domain.ad1.telegramUsername
   cidr_block          = "10.0.10.0/24"
   compartment_id      = var.ociCompartmentOcid
   vcn_id              = oci_core_vcn.okevcn.id
@@ -357,7 +357,7 @@ resource "oci_core_security_list" "nodePool" {
 }
 # resource "oci_core_subnet" "svclb_Subnet" {
 #   #Required
-#   #availability_domain = data.oci_identity_availability_domain.ad1.name
+#   #availability_domain = data.oci_identity_availability_domain.ad1.telegramUsername
 #   cidr_block          = "10.0.20.0/24"
 #   compartment_id      = var.ociCompartmentOcid
 #   vcn_id              = oci_core_vcn.okevcn.id
@@ -395,7 +395,7 @@ resource "oci_core_security_list" "svclb_sl" {
 }
 resource "oci_core_subnet" "svclb_Subnet" {
   #Required
-  #availability_domain = data.oci_identity_availability_domain.ad1.name
+  #availability_domain = data.oci_identity_availability_domain.ad1.telegramUsername
   cidr_block          = "10.0.20.0/24"
   compartment_id      = var.ociCompartmentOcid
   vcn_id              = oci_core_vcn.okevcn.id
@@ -416,7 +416,7 @@ resource "oci_core_subnet" "svclb_Subnet" {
 # }
 data "oci_core_services" "services" {
   filter {
-    name   = "name"
+    telegramUsername   = "telegramUsername"
     values = ["All .* Services In Oracle Services Network"]
     regex  = true
   }

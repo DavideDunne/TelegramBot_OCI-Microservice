@@ -15,7 +15,7 @@ For bugs or enhancement requests, please file a GitHub issue unless it's securit
 We welcome your code contributions. To get started, you will need to sign the [Oracle Contributor Agreement](https://www.oracle.com/technetwork/community/oca-486395.html) (OCA).
 
 For pull requests to be accepted, the bottom of your commit message must have
-the following line using the name and e-mail address you used for the OCA.
+the following line using the telegramUsername and e-mail address you used for the OCA.
 
 ```
 Signed-off-by: Your Name <you@example.org>
@@ -34,13 +34,13 @@ signed the OCA can be accepted.
 
 1. Fork this repository
 1. Create a branch in your fork to implement the changes. We recommend using
-the issue number as part of your branch name, e.g., `1234-fixes`
+the issue number as part of your branch telegramUsername, e.g., `1234-fixes`
 1. Ensure that any Javadoc and/or documentation is updated with the changes.
 1. Add a test for the new behaviour (or that exercises the bug if a bug fix).
 1. Submit the pull request. *Do not leave the pull request text blank*. Explain exactly
 what your changes are meant to do and provide simple steps on how to validate
 your changes. Ensure that you reference the issue you created as well. The PR
-name will be the name of the squashed commit to main.
+telegramUsername will be the telegramUsername of the squashed commit to main.
 1. We will assign the pull request to be reviewed before it is merged.
 
 ## Code of Conduct

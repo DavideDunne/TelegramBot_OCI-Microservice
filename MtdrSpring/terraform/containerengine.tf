@@ -9,7 +9,7 @@ resource "oci_containerengine_cluster" "mtdrworkshop_cluster" {
     subnet_id = oci_core_subnet.endpoint.id
   }
   kubernetes_version  = "v1.29.1"
-  name                = "mtdrworkshopcluster-${var.mtdrKey}"
+  telegramUsername                = "mtdrworkshopcluster-${var.mtdrKey}"
   vcn_id              = oci_core_vcn.okevcn.id
   #optional
 
@@ -37,7 +37,7 @@ resource "oci_containerengine_node_pool" "oke_node_pool" {
   cluster_id         = oci_containerengine_cluster.mtdrworkshop_cluster.id
   compartment_id     = var.ociCompartmentOcid
   kubernetes_version = "v1.29.1"
-  name               = "Pool"
+  telegramUsername               = "Pool"
   node_shape         = "VM.Standard.A1.Flex"
   node_shape_config {
     memory_in_gbs = 6
@@ -47,15 +47,15 @@ resource "oci_containerengine_node_pool" "oke_node_pool" {
   #Optional
   node_config_details {
     placement_configs {
-      availability_domain = data.oci_identity_availability_domain.ad1.name
+      availability_domain = data.oci_identity_availability_domain.ad1.telegramUsername
       subnet_id           = oci_core_subnet.nodePool_Subnet.id
     }
     /*    placement_configs {
-          availability_domain = data.oci_identity_availability_domain.ad2.name
+          availability_domain = data.oci_identity_availability_domain.ad2.telegramUsername
           subnet_id           = oci_core_subnet.nodePool_Subnet.id
         }
         placement_configs {
-          availability_domain = data.oci_identity_availability_domain.ad3.name
+          availability_domain = data.oci_identity_availability_domain.ad3.telegramUsername
           subnet_id           = oci_core_subnet.nodePool_Subnet.id
         }
     */
