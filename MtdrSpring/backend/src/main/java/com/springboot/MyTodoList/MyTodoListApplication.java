@@ -26,7 +26,7 @@ public class MyTodoListApplication implements CommandLineRunner {
 	@Value("${telegram.bot.token}")
 	private String telegramBotToken;
 
-	@Value("${telegram.bot.name}")
+	@Value("${telegram.bot.telegramUsername}")
 	private String botName;
 
 	public static void main(String[] args) {
