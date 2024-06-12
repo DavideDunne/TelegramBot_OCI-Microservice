@@ -32,4 +32,17 @@ public class EquipoUsuarioId implements Serializable {
     public void setUsuario(Long usuario) {
         this.usuario = usuario;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EquipoUsuarioId that = (EquipoUsuarioId) o;
+        return Objects.equals(equipo, that.equipo) && Objects.equals(usuario, that.usuario);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(equipo, usuario);
+    }
 }

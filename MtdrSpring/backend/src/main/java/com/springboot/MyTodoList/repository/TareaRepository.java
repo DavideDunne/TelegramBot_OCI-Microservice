@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface TareaRepository extends JpaRepository<Tarea, Long> {
 
+    @Query("SELECT t FROM Tarea t WHERE t.usuario.usuario_id = :usuarioId")
     List<Tarea> findByUsuarioId(Long usuarioId);
 
     @Query("SELECT t FROM Tarea t WHERE t.usuario.usuario_id IN " +
