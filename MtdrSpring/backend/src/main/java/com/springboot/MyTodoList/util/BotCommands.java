@@ -10,6 +10,8 @@ public enum BotCommands {
 	HIDE_COMMAND("/hide"), 
 	TODO_LIST("/todolist"),
 	MY_TASKS("/mytasks"),
+	COMPLETED_TASKS("/completedtasks"),
+	ALL_TASKS_MANAGER("/alltasks"),
 	ADD_ITEM("/additem");
 
 	private String command;

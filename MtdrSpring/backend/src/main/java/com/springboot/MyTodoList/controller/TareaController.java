@@ -16,7 +16,7 @@ public class TareaController {
     private TareaService tareaService;
 
     @GetMapping(value = "/usuario/{idUsuario}/tareas") // Movido aquí
-    public ResponseEntity<List<Tarea>> getAllTareasByidUsuario(@PathVariable int idUsuario) {
+    public ResponseEntity<List<Tarea>> getAllTareasByidUsuario(@PathVariable Long idUsuario) {
         List<Tarea> tareas = tareaService.findAllByidUsuario(idUsuario);
         if (tareas.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

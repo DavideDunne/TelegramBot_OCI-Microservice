@@ -1,3 +1,4 @@
+
 package com.springboot.MyTodoList.model;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import javax.persistence.*;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Long id;
 
     @Column(name = "NOMBRE1")
     String nombre1;
@@ -25,11 +26,11 @@ public class Usuario {
     boolean isManager;
 
     @Column(name = "TELEGRAM_USERNAME")
-    String telegramUsername;
+    long telegramUsername;
 
     public Usuario() {}
 
-    public Usuario(int id, String nombre1, String nombre2, String apellido1, String apellido2, boolean isManager, String telegramUsername) {
+    public Usuario(Long id, String nombre1, String nombre2, String apellido1, String apellido2, boolean isManager, long telegramUsername) {
         this.id = id;
         this.nombre1 = nombre1;
         this.nombre2 = nombre2;
@@ -39,11 +40,11 @@ public class Usuario {
         this.telegramUsername = telegramUsername;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -87,11 +88,11 @@ public class Usuario {
         isManager = manager;
     }
 
-    public String getTelegramUsername() {
+    public long getTelegramUsername() {
         return telegramUsername;
     }
 
-    public void setTelegramUsername(String telegramUsername) {
+    public void setTelegramUsername(long telegramUsername) {
         this.telegramUsername = telegramUsername;
     }
 

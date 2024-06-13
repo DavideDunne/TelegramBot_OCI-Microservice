@@ -13,11 +13,11 @@ public class Equipo {
     String nombre;
 
     @Column(name = "ID_MANAGER")
-    int idManager;
+    Long idManager;
 
     public Equipo() {}
 
-    public Equipo(int id, String nombre, int idManager) {
+    public Equipo(int id, String nombre, Long idManager) {
         this.id = id;
         this.nombre = nombre;
         this.idManager = idManager;
@@ -39,11 +39,11 @@ public class Equipo {
         this.nombre = nombre;
     }
 
-    public int getIdManager() {
+    public Long getIdManager() {
         return idManager;
     }
 
-    public void setIdManager(int idManager) {
+    public void setIdManager(Long idManager) {
         this.idManager = idManager;
     }
 

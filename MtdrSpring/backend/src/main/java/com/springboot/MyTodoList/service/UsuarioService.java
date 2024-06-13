@@ -20,8 +20,8 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public ResponseEntity<Usuario> getItemById(int id) {
-        Optional<Usuario> data = usuarioRepository.findById(id);
+    public ResponseEntity<Usuario> getItemByTelegramUsername(long telegramUsername) {
+        Optional<Usuario> data = usuarioRepository.findByTelegramUsername(telegramUsername);
         return data.map(usuario -> new ResponseEntity<>(usuario, HttpStatus.OK))
                    .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -37,6 +37,11 @@ public class UsuarioService {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public boolean isManagerById(long userId) {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(userId);
+        return usuarioOpt.map(Usuario::isManager).orElse(false);
     }
 
     public Usuario updateUsuario(int id, Usuario us) {

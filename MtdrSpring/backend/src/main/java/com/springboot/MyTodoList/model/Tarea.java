@@ -16,14 +16,14 @@ public class Tarea {
     String descripcion;
 
     @Column(name = "ID_USUARIO")
-    int idUsuario;
+    Long idUsuario;
 
     @Column(name = "COMPLETADO")
     boolean completado;
 
     public Tarea() {}
 
-    public Tarea(int id, String nombre, String descripcion, int idUsuario, boolean completado) {
+    public Tarea(int id, String nombre, String descripcion, Long idUsuario, boolean completado) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -55,11 +55,11 @@ public class Tarea {
         this.descripcion = descripcion;
     }
 
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 

@@ -9,10 +9,10 @@ public class EquipoUsuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     
-    @Column(name = "ID_TEAM")
+    @Column(name = "TEAM_ID")
     int idTeam;
     
-    @Column(name = "ID_USER")
+    @Column(name = "USER_ID")
     int idUser;
 
     public EquipoUsuario() {}
