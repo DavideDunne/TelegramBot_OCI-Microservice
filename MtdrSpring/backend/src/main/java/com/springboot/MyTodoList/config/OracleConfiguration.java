@@ -38,6 +38,7 @@ public class OracleConfiguration {
     private Environment env;
 
     // start of local development lines with application.properties
+    /*
     @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
 
@@ -49,19 +50,20 @@ public class OracleConfiguration {
 
     @Value("${spring.datasource.password}")
     private String dbPassword;
+    */
     // end of local development lines with application.properties
 
     @Bean
     public DataSource dataSource() throws SQLException{
         OracleDataSource ds = new OracleDataSource();
         // Start Kubernetes deployment
-//        ds.setDriverType(env.getProperty("driver_class_name"));
-//        logger.info("Using Driver " + env.getProperty("driver_class_name"));
-//        ds.setURL(env.getProperty("db_url"));
-//        logger.info("Using URL: " + env.getProperty("db_url"));
-//        ds.setUser(env.getProperty("db_user"));
-//        logger.info("Using Username " + env.getProperty("db_user"));
-//        ds.setPassword(env.getProperty("dbpassword"));
+        ds.setDriverType(env.getProperty("driver_class_name"));
+        logger.info("Using Driver " + env.getProperty("driver_class_name"));
+        ds.setURL(env.getProperty("db_url"));
+        logger.info("Using URL: " + env.getProperty("db_url"));
+        ds.setUser(env.getProperty("db_user"));
+        logger.info("Using Username " + env.getProperty("db_user"));
+        ds.setPassword(env.getProperty("dbpassword"));
         // End Kubernetes deployment
 
 //        Start of lines for local testing with application.yaml
@@ -74,6 +76,7 @@ public class OracleConfiguration {
 //        ds.setPassword(dbSettings.getPassword());
 //        End of lines for local testing with application.yaml
 
+/*
 //        Start of lines for local testing with application.properties
         ds.setDriverType(driverClassName);
         logger.info("Using Driver " + driverClassName);
@@ -83,6 +86,7 @@ public class OracleConfiguration {
         logger.info("Using Username " + dbUser);
         ds.setPassword(dbPassword);
 //        End of lines for local testing with application.properties
+*/
         logger.info("DataSource initialized successfully.");
         return ds;
     }
