@@ -24,7 +24,7 @@ public class MyTodoListApplication implements CommandLineRunner {
 
 	@Autowired
 	private ToDoItemService toDoItemService;
-	
+
 	@Autowired
 	private UsuarioService usuarioService;
 
@@ -34,7 +34,7 @@ public class MyTodoListApplication implements CommandLineRunner {
 	@Value("${telegram.bot.token}")
 	private String telegramBotToken;
 
-	@Value("${telegram.bot.telegramUsername}")
+	@Value("${telegram.bot.name}")
 	private String botName;
 
 	public static void main(String[] args) {

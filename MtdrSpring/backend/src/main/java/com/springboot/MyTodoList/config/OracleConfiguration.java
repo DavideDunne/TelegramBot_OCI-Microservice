@@ -38,19 +38,19 @@ public class OracleConfiguration {
     private Environment env;
 
     // start of local development lines with application.properties
-    /*
-    @Value("${spring.datasource.driver-class-name}")
-    private String driverClassName;
+    
+    // @Value("${spring.datasource.driver-class-name}")
+    // private String driverClassName;
 
-    @Value("${spring.datasource.url}")
-    private String dbUrl;
+    // @Value("${spring.datasource.url}")
+    // private String dbUrl;
 
-    @Value("${spring.datasource.username}")
-    private String dbUser;
+    // @Value("${spring.datasource.username}")
+    // private String dbUser;
 
-    @Value("${spring.datasource.password}")
-    private String dbPassword;
-    */
+    // @Value("${spring.datasource.password}")
+    // private String dbPassword;
+
     // end of local development lines with application.properties
 
     @Bean
@@ -76,17 +76,17 @@ public class OracleConfiguration {
 //        ds.setPassword(dbSettings.getPassword());
 //        End of lines for local testing with application.yaml
 
-/*
+
 //        Start of lines for local testing with application.properties
-        ds.setDriverType(driverClassName);
-        logger.info("Using Driver " + driverClassName);
-        ds.setURL(dbUrl);
-        logger.info("Using URL: " + dbUrl);
-        ds.setUser(dbUser);
-        logger.info("Using Username " + dbUser);
-        ds.setPassword(dbPassword);
+        // ds.setDriverType(driverClassName);
+        // logger.info("Using Driver " + driverClassName);
+        // ds.setURL(dbUrl);
+        // logger.info("Using URL: " + dbUrl);
+        // ds.setUser(dbUser);
+        // logger.info("Using Username " + dbUser);
+        // ds.setPassword(dbPassword);
 //        End of lines for local testing with application.properties
-*/
+
         logger.info("DataSource initialized successfully.");
         return ds;
     }

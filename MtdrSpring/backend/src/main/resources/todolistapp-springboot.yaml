@@ -49,7 +49,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: db_user
-              value: "TODOUSER"
+              value: "TESTUSERCUATRO"
             - name: db_url
               value: "jdbc:oracle:thin:@reactodov61gk4l_tp?TNS_ADMIN=/mtdrworkshop/creds"
             - name: todo.table.name
