@@ -5,6 +5,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 // This is only used for local testing.
+
+/**
+ * This class is used to grab the values from the application.properties file
+ * Only used for local testing
+ * @author Peter Song
+ */
 @Configuration
 @ConfigurationProperties(prefix = "spring.datasource")
 public class DbSettings {
